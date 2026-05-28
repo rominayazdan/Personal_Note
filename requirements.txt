@@ -1,0 +1,8 @@
+pip
+django
+asgiref
+sqlparse
+setuptool
+djangorestframework
+djangorestframework-simplejwt
+djangorestframework-api-key
