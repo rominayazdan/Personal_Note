@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from user.models import User
 
+
 class RegisterUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -13,14 +14,10 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             phone_number=validated_data['phone_number'],
             username=validated_data['username'],
         )
+        user.set_password(validated_data['password'])  # مهم
+        user.save()
 
         return user
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('phone_number', 'username','id')
-        extra_kwargs = {'password': {'write_only': True}}
 
 
 
